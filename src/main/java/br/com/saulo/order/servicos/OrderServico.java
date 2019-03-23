@@ -31,6 +31,21 @@ public class OrderServico {
         return orderRepositorio.save(orderEntidade);
 
 	}
+	
+	/**
+	 * Método responsável pela edição da order.
+	 *  
+	 * @param storeEntidade <br/>
+	 *                   Objeto que representa a requisição
+	 *                   {@link orderEntidade}
+	 * 
+	 * @return {@link orderEntidade}
+	 */
+	public OrderEntidade atualizarOrder(OrderEntidade orderEntidade) {
+		
+		return orderRepositorio.save(orderEntidade);
+	} 
+	
 
 
 
