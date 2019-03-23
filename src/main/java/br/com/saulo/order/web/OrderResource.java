@@ -1,5 +1,4 @@
 package br.com.saulo.order.web;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +11,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.saulo.order.dto.persists.OrderPersist;
 
+import br.com.saulo.order.dto.persists.OrderPersist;
 import br.com.saulo.order.dto.responses.OrderResponse;
 import br.com.saulo.order.entidades.OrderEntidade;
 import br.com.saulo.order.servicos.OrderServico;
 import br.com.saulo.order.ultil.GenericConvert;
+import io.swagger.annotations.Api;
 
 @RestController
+@Api(tags = "order")
 @RequestMapping(value = "/order", produces = MediaType.APPLICATION_JSON_VALUE)
 public class OrderResource {
 	

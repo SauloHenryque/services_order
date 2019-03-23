@@ -24,4 +24,5 @@ public class OrderPersist implements Serializable {
     @NotNull(message = "Status não pode ser nulo")
     private TipoStatus status;
 
+
 }

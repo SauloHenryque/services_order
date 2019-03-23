@@ -10,7 +10,7 @@
 
 **Nome do Resource:** br.com.saulo.order.web.OrderResource
 
-**Nome do Serviço:** br.com.saulo.order.servicos.AddressServico
+**Nome do Serviço:** br.com.saulo.order.servicos.OrderServico
 
 **Nome do Método:** salvarOrder
 
@@ -58,7 +58,7 @@
 
 ## **Documentos e referência**
 
-**Tabelas:** order
+**Tabelas:** order_sale
 
 ## **Detalhes de implementação**
 
