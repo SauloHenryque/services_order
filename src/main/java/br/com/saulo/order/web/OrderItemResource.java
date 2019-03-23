@@ -46,7 +46,7 @@ public class OrderItemResource {
 			orderItemEntidade.setId(id);
 			
 			orderItemEntidade 					= orderItemServico.atualizarOrderItem(orderItemEntidade);
-			OrderResponse response 			= GenericConvert.convertModelMapper(orderItemEntidade, OrderResponse.class);
+			OrderItemResponse response 			= GenericConvert.convertModelMapper(orderItemEntidade, OrderItemResponse.class);
 
 			return ResponseEntity.status(HttpStatus.OK).body(response);
 	    }

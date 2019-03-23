@@ -1,7 +1,10 @@
 package br.com.saulo.order.servicos;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import br.com.saulo.order.entidades.OrderEntidade;
@@ -45,6 +48,22 @@ public class OrderServico {
 		
 		return orderRepositorio.save(orderEntidade);
 	} 
+	
+	/**
+	 * Método responsável pela listagem das store.
+	 * 
+	 * @param storeEntidade <br/>
+	 *                   Objeto que representa a requisição do serviço
+	 *                   {@link AddressEntidade}
+	 * 
+	 * @return {@link List(addressEntidade)}
+	 */
+
+    public List<OrderEntidade> listarOrder(OrderEntidade orderEntidade) {
+
+    	return orderRepositorio.findAll(Example.of(orderEntidade));
+
+    }
 	
 
 
