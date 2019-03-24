@@ -22,6 +22,7 @@
 |---|:---:|---|---|:---:|:---:|---|---|
 | data_confirmacao | Não | Data Confirmação Order | Order Confirmation Date | Query | Date | "2019-03-23" | |
 | status | Sim | Status Order |  Status Order | Query | String | "CRIADO" | MAX(50)|
+| id_store | Sim | Código Identificação da Store | store identifier | Long | 1 |
 
 
 ### **Exemplo Request:**
@@ -31,7 +32,8 @@
 ```json
 {
 	"data_confirmacao": "2019-03-23",
-    "status": "CRIADO"
+    "status": "CRIADO",
+	"id_store": 1
 }
 ```
 
@@ -44,6 +46,7 @@
 | id | Código identificador do order | order identifier | Long | 1 | 
 | data_confirmacao | Data Confirmação Order | Order Confirmation Date | Date | "2019-03-23" | 
 | status | Status Order | Status Order | String | "CRIADO" |
+| id_store | Código Identificação da Store | store identifier | Long | 1 |
 
 **Código status da resposta HTTP: 201 - Created**
 
@@ -52,7 +55,8 @@
 {
     "id": 1,
 	"data_confirmacao": "2019-03-23",
-    "status": "CRIADO"
+    "status": "CRIADO",
+	"id_store": 1
 }
 ```
 

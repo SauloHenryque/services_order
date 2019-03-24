@@ -1,41 +1,28 @@
-# **Descrição:** Atualiza uma order a partir do seu código de identificação.
+# **Descrição:** Atualiza uma order parcial a partir do seu código de identificação.
 
-**Description (en-US):** Update an order by the identifier code
+**Description (en-US):** Update an order partial by the identifier code
 
 ## **Arquitetura**
 
 **Nome da Tag:** order
 
-**Path:** PUT /api/order/{id}
+**Path:** PATCH /api/order/{id}
 
 **Nome do Resource:** br.com.saulo.order.web.OrderResource
 
 **Nome do Serviço:** br.com.saulo.order.servicos.OrderServico
 
-**Nome do Método:** atualizarOrder
+**Nome do Método:** reembolsarOrder
 
 ## **Requisição**
-
-### **Nome do Request:** br.com.saulo.order.dto.persists.OrderPersist
 
 |Parâmetro | Obrigatório | Descrição | Description (en-US) | Tipo parâmetro | Tipo de dados | Exemplo | Validador |
 |---|:---:|---|---|:---:|:---:|---|---|
 | id | Sim | Código identificador do order | store identifier | Path | Long  | 1 |
-| data_confirmacao | Não | Data Confirmação Order | Order Confirmation Date | Query | Date | "2019-03-23" | |
-| status | Sim | Status Order |  Status Order | Query | String | "CRIADO" | MAX(50)|
-| id_store | Sim | Código Identificação da Store | store identifier | Long | 1 |
-
 
 ### **Exemplo Request:**
 ```
 /api/order/1
-```
-```json
-{
-	"data_confirmacao": "2019-03-23",
-    "status": "CRIADO",
-	"id_store": 1
-}
 ```
 
 ## **Resposta**
@@ -46,7 +33,8 @@
 |---|---|---|:---:|---|
 | id | Código identificador do order | order identifier | Long | 1 | 
 | data_confirmacao | Data Confirmação Order | Order Confirmation Date | Date | "2019-03-23" | 
-| status | Status Order | Status Order | String | "CRIADO" |
+| status | Status Order | Status Order | String | "REEMBOLSO" |
+| id_store | Código Identificação da Store | store identifier | Long | 1 |
 
 **Código status da resposta HTTP: 200 - Ok**
 
@@ -55,7 +43,8 @@
 {
     "id": 1,
 	"data_confirmacao": "2019-03-23",
-    "status": "CRIADO"
+    "status": "REEMBOLSO"
+	"id_store": 1
 }
 ```
 
@@ -74,7 +63,8 @@
 1. Consultar a order pelo id
 2. Verificar se a order não é nulo  
 2.1. Se for nulo, retornar exceção de registro não encontrado  
-3. Converter o objeto persist na entidade order
+3. Verifica se atende a regra de reembolso
+3.1. Se for nulo, retornar exceção de registro bloqueado para reembolso
 4. Salvar entidade
 5. Converter a entidade no response
 6. Retornar o response
@@ -85,6 +75,7 @@
 | --- | --- | :---: | --- |
 | Service | Quando atualiza a order | 200 | Ok |
 | Service | Quando a order não existe | 404 | Not Found |
+| Service | Quando a order não existe | 400 | Bad Request |
 | DTO | Quando a status não está na lista pre definido|  400 | Bad Request |
 | DTO | Quando o atributo status não existir | 400 | Bad Request |
 
