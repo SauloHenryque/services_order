@@ -23,6 +23,10 @@ public class OrderPersist implements Serializable {
     @ApiModelProperty(value = "Status Order", position = 2)
     @NotNull(message = "Status não pode ser nulo")
     private TipoStatus status;
+    
+    @ApiModelProperty(value = "Id_store", position = 3)
+    @NotNull(message = "Id_store não pode ser nulo")
+    private Long id_store;
 
 
 }

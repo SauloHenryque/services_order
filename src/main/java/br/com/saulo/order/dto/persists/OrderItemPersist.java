@@ -2,7 +2,6 @@ package br.com.saulo.order.dto.persists;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

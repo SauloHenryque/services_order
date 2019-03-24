@@ -15,7 +15,7 @@ public class OrderPaymentPersist implements Serializable {
 	
 	private static final long serialVersionUID = -7329881749188627883L;
 	
-	public enum TipoStatusPagamento { ABERTO, FECHADO, ATRASADO};
+	public enum TipoStatusPagamento { ABERTO, CONCLUIDO, ATRASADO};
 	
     @ApiModelProperty(value = "Status Order Payment", position = 2)
     @NotNull(message = "Status não pode ser nulo")

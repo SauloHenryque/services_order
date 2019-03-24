@@ -1,19 +1,14 @@
 package br.com.saulo.order.entidades;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
+import javax.persistence.Table;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -25,7 +20,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Table(name = "ORDER_SALE")
+@Table(name = "STORE_CONFIG")
 @Entity
 @Data
 @Builder
@@ -35,7 +30,7 @@ import lombok.ToString;
 @DynamicUpdate
 @EqualsAndHashCode(of = { "id" }, callSuper = false)
 @ToString(of = { "id" })
-public class OrderEntidade implements Serializable {
+public class StoreConfigEntidade implements Serializable {
 	
     private static final long serialVersionUID = -5633260910164953251L;
 
@@ -44,22 +39,17 @@ public class OrderEntidade implements Serializable {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "DATA_CONFIRMACAO")
-    private LocalDate data_confirmacao;
+    @Column(name = "DESCRICAO")
+    private String descricao;
 
-    @Column(name = "STATUS")
-    private String status;
+    @Column(name = "CHAVE")
+    private String chave;
     
-    @Column(name = "ID_STORE")
+    @Column(name = "VALOR")
+    private String valor;
+    
+    @Column(name = "ID_STORE" )
     private Long id_store;
-    
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_ORDER_SALE", referencedColumnName = "ID", insertable= false, updatable= false)
-    private List<OrderItemEntidade> orderItem;
-    
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_ORDER_SALE", referencedColumnName = "ID", insertable= false, updatable= false)
-    private List<OrderPaymentEntidade> orderPayment;
     
 
 }
