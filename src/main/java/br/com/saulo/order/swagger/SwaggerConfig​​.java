@@ -26,7 +26,7 @@ public class SwaggerConfig​​ {
 	 
 	private ApiInfo apiInfo() {
 		
-		return new ApiInfoBuilder().title("Swagger Store")
+		return new ApiInfoBuilder().title("Swagger Order")
 				.description("Documentação da API de acesso aos endpoints da Order")
 				.version("1.0")
 				.build();
