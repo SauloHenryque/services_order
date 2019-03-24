@@ -22,7 +22,5 @@ public class OrderResponse implements Serializable{
     
     @ApiModelProperty(value = "Status order", position = 3)
     private String status;
-    
-    @ApiModelProperty(value = "Order Item", position = 4)
-    private OrderItemResponse order_item;
+
 }

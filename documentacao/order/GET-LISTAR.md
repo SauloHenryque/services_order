@@ -38,7 +38,8 @@
 | id | Código identificador do order | order identifier | Long | 1 | X |
 | data_confirmacao | Data Confirmação Order | Order Confirmation Date | Date | "2019-03-23" | 
 | status | Status Order | Status Order | String | "CRIADO" |
-| order_itens | itens do order | itens do order | List```<OrderItemResponse>``` | List```<OrderItemResponse>``` |
+| orderItem | itens do order | itens do order | List```<OrderItemResponse>``` | List```<OrderItemResponse>``` |
+| orderPayment | payment do order | payment do order | List```<OrderPaymentResponse>``` | List```<OrderPaymentResponse>``` |
 
 
 **Código status da resposta HTTP: 200 -  OK**
@@ -49,7 +50,7 @@
   "id": 1,
   "data_confirmacao": "2019-03-23",
   "status": "CRIADO",
-  "order_itens" : [
+  "orderItem" : [
     {
       "id" : 1,
       "descricao" : "Descrição Teste",
@@ -57,7 +58,16 @@
 	  "quantidade" : 10,
 	  "id_order_sale" : 1 
     }
-  ]
+  ],
+  "orderPayment": [
+            {
+                "id": 1,
+                "status": "ABERTO",
+                "numero_cartao": "123456789",
+                "data_pagamento": "2019-03-23",
+                "id_order_sale": 1
+            }
+        ]
 }
 ```
 
