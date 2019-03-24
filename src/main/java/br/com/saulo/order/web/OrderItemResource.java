@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.saulo.order.dto.persists.OrderItemPersist;
 import br.com.saulo.order.dto.responses.OrderItemResponse;
-import br.com.saulo.order.dto.responses.OrderResponse;
 import br.com.saulo.order.entidades.OrderItemEntidade;
 import br.com.saulo.order.servicos.OrderItemServico;
 import br.com.saulo.order.ultil.GenericConvert;
@@ -49,6 +49,13 @@ public class OrderItemResource {
 			OrderItemResponse response 			= GenericConvert.convertModelMapper(orderItemEntidade, OrderItemResponse.class);
 
 			return ResponseEntity.status(HttpStatus.OK).body(response);
+	    }
+		
+		@DeleteMapping("/{id}")
+	    public ResponseEntity<?> deletar(@PathVariable("id") long id) {
+			
+			orderItemServico.deletarOrderItem(id);
+	        return ResponseEntity.ok(HttpStatus.OK);
 	    }
 
 }

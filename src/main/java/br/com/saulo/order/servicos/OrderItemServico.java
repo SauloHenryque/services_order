@@ -46,6 +46,18 @@ public class OrderItemServico {
 		return orderItemRepositorio.save(orderItemEntidade);
 	} 
 	
+	/**
+	 * Método responsável por deletar um order item.
+	 *  
+	 * @param id <br/>
+	 * id order item a ser deletada
+	 * 
+	 */
+    public void deletarOrderItem(long id) {
+    	
+    	OrderItemEntidade orderItemEntidade = orderItemRepositorio.findById(id);
+    	orderItemRepositorio.delete(orderItemEntidade);
+    }
 
 
 
