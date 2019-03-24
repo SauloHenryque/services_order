@@ -2,16 +2,12 @@ package br.com.saulo.order.entidades;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
@@ -25,7 +21,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Table(name = "ORDER_SALE")
+@Table(name = "ORDER_SALE_PAYMENT")
 @Entity
 @Data
 @Builder
@@ -35,28 +31,27 @@ import lombok.ToString;
 @DynamicUpdate
 @EqualsAndHashCode(of = { "id" }, callSuper = false)
 @ToString(of = { "id" })
-public class OrderEntidade implements Serializable {
+public class OrderPaymentEntidade implements Serializable {
 	
-    private static final long serialVersionUID = -5633260910164953251L;
+	
+    private static final long serialVersionUID = -5633260910164953254L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "DATA_CONFIRMACAO")
-    private LocalDate data_confirmacao;
-
     @Column(name = "STATUS")
     private String status;
+
+    @Column(name = "NUMERO_CARTAO")
+    private String numero_cartao;
     
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_ORDER_SALE", referencedColumnName = "ID", insertable= false, updatable= false)
-    private List<OrderItemEntidade> orderItem;
-    
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_ORDER_SALE", referencedColumnName = "ID", insertable= false, updatable= false)
-    private List<OrderPaymentEntidade> orderPayment;
+    @Column(name = "DATA_PAGAMENTO")
+    private LocalDate data_pagamento;
+
+    @Column(name = "ID_ORDER_SALE")
+    private Long id_order_sale;
     
 
 }

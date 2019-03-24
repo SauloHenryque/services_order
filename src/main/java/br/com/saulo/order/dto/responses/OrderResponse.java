@@ -14,27 +14,15 @@ public class OrderResponse implements Serializable{
 
 	private static final long serialVersionUID = 4192610937139207457L;
 	
-	/**
-     * Código de Identificação.
-     */
     @ApiModelProperty(value = "Identificação da Order", position = 1)
     private Long id;
 
-    /**
-     * Data Confirmação Order.
-     */
     @ApiModelProperty(value = "Data confirmação order", position = 2)
     private LocalDate data_confirmacao;
     
-    /**
-     * Status Order
-     */
     @ApiModelProperty(value = "Status order", position = 3)
     private String status;
     
-    /**
-     * Response order item
-     */
     @ApiModelProperty(value = "Order Item", position = 4)
     private OrderItemResponse order_item;
 }

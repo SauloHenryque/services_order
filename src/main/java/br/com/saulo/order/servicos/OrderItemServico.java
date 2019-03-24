@@ -20,7 +20,7 @@ public class OrderItemServico {
 	/**
 	 * Método responsável pela criação da order item.
 	 *  
-	 * @param orderEntidade <br/>
+	 * @param orderItemEntidade <br/>
 	 *                   Objeto que representa a requisição
 	 *                   {@link orderItemEntidade}
 	 * 
@@ -35,7 +35,7 @@ public class OrderItemServico {
 	/**
 	 * Método responsável pela edição da order item.
 	 *  
-	 * @param storeEntidade <br/>
+	 * @param orderItemEntidade <br/>
 	 *                   Objeto que representa a requisição
 	 *                   {@link orderItemEntidade}
 	 * 
