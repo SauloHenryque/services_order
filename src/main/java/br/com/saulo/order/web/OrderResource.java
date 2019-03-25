@@ -24,7 +24,7 @@ import io.swagger.annotations.Api;
 
 @RestController
 @Api(tags = "order")
-@RequestMapping(value = "/order", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/order", produces = MediaType.APPLICATION_JSON_VALUE)
 public class OrderResource {
 	
 	 	@Autowired

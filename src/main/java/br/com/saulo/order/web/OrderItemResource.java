@@ -22,7 +22,7 @@ import br.com.saulo.order.ultil.GenericConvert;
 import io.swagger.annotations.Api;
 
 @RestController
-@RequestMapping(value = "/order-item", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/order-item", produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = "order-item")
 public class OrderItemResource {
 	
