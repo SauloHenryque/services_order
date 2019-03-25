@@ -1,5 +1,9 @@
 package br.com.saulo.order.servicos;
 
+import static br.com.saulo.order.exception.ExceptionOrder.checkThrow;
+import static br.com.saulo.order.exception.ExceptionsMessagesEnum.ORDER_REEMBOLSO_NAO_ENCONTRADO;
+import static br.com.saulo.order.exception.ExceptionsMessagesEnum.REGISTRO_NAO_ENCONTRADO;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +11,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import br.com.saulo.order.entidades.OrderEntidade;
-import br.com.saulo.order.exception.ExceptionOrder;
 import br.com.saulo.order.repositorios.OrderRepositorio;
 import br.com.saulo.order.ultil.Utils;
 import br.com.twsoftware.alfred.object.Objeto;
@@ -23,9 +26,7 @@ public class OrderServico {
     
     @Autowired
     private Utils uteis;
-	
-    @Autowired
-    private ExceptionOrder exceptionOrder;
+
 
 	/**
 	 * Método responsável pela criação da order.
@@ -51,9 +52,11 @@ public class OrderServico {
 	 * 
 	 * @return {@link orderEntidade}
 	 */
-	public OrderEntidade atualizarOrder(OrderEntidade orderEntidade) {
+	public OrderEntidade atualizarOrder(OrderEntidade orderEntidadeUpdate) {
 		
-		return orderRepositorio.save(orderEntidade);
+		checkThrow(!orderRepositorio.existsById(orderEntidadeUpdate.getId()), REGISTRO_NAO_ENCONTRADO);
+		
+		return orderRepositorio.save(orderEntidadeUpdate);
 	} 
 	
 	/**
@@ -66,19 +69,29 @@ public class OrderServico {
 	 * @return {@link List(addressEntidade)}
 	 */
 
-    public List<OrderEntidade> listarOrder(OrderEntidade orderEntidade) {
+    public List<OrderEntidade> listarOrder(OrderEntidade orderEntidadeUpdate) {
 
-    	return orderRepositorio.findAll(Example.of(orderEntidade));
+    	return orderRepositorio.findAll(Example.of(orderEntidadeUpdate));
 
     }
 
-	public OrderEntidade reembolsarOrder(long id) throws Exception {
+    
+	/**
+	 * Método responsável pelo reembolso do order
+	 *  
+	 * @param id <br/>
+	 * 
+	 * @return {@link orderEntidade}
+	 */
+	public OrderEntidade reembolsarOrder(int id) {
 		
+		Long idLong = new Long(id);
+		checkThrow(orderRepositorio.existsById(idLong), REGISTRO_NAO_ENCONTRADO);
 		OrderEntidade orderEntidade = orderRepositorio.findById(id);
-		Long diasLimiteReembolso  = uteis.recuperarParametroEmissor(orderEntidade.getId_store(), "REEMBOLSODIAS");  
-		Long idOrder 				= orderRepositorio.findByIdAndDias(id, diasLimiteReembolso);
 		
-		exceptionOrder.checkThrow(Objeto.isBlank(idOrder), "Order bloqueado para reembolso!");
+		Long diasLimiteReembolso  = uteis.recuperarParametroEmissor(orderEntidade.getId_store(), "REEMBOLSODIAS");  
+		Long idOrder 				= orderRepositorio.findByIdAndDias(idLong, diasLimiteReembolso);
+		checkThrow(Objeto.isBlank(idOrder), ORDER_REEMBOLSO_NAO_ENCONTRADO);
 		
 		orderEntidade.setStatus("REEMBOLSO");
 		return orderRepositorio.save(orderEntidade);

@@ -83,9 +83,16 @@
 | Onde | Teste | HTTP Status | Resultado |
 | :---: | --- | :---: | --- |
 | Service | Quando cadastra order item | 201 | Ok |
+| Service | Quando a order não existe | 404 | Not Found |
 | DTO | Quando a quantidade de caracteres do atributo descricao for maior que 255 |  400 | Bad Request |
 | DTO | Quando o atributo descricao não existir | 400 | Bad Request |
 | DTO | Quando o atributo cep não existir | 400 | Bad Request |
 | DTO | Quando o atributo preco_unitario não existir | 400 | Bad Request |
 | DTO | Quando o atributo quantidade não existir | 400 | Bad Request |
 | DTO | Quando o atributo id_order_sale não existir | 400 | Bad Request |
+
+## **Exceções**
+
+| HTTP Status | Chave | Mensagem | Message (en-US) |
+|---|---|---|---|
+| 404 | REGISTRO_NAO_ENCONTRADO | Nenhum registro encontrado para essa solicitação | No register found for this request |

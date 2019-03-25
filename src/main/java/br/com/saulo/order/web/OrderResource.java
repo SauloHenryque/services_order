@@ -60,7 +60,7 @@ public class OrderResource {
 	    }
 		
 		@PatchMapping("/{id}")
-	    public ResponseEntity<?> reembolsar(@PathVariable("id") long id) throws Exception {
+	    public ResponseEntity<?> reembolsar(@PathVariable("id") int id) throws Exception {
 			
 			OrderEntidade orderEntidade = orderServico.reembolsarOrder(id);
 			OrderResponse response 		= GenericConvert.convertModelMapper(orderEntidade, OrderResponse.class);

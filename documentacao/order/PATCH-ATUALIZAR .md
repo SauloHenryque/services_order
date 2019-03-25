@@ -75,7 +75,7 @@
 | --- | --- | :---: | --- |
 | Service | Quando atualiza a order | 200 | Ok |
 | Service | Quando a order não existe | 404 | Not Found |
-| Service | Quando a order não existe | 400 | Bad Request |
+| Service | Quando a order não existe com a regra negocio definida para reembolso| 404 |  Not Found |
 | DTO | Quando a status não está na lista pre definido|  400 | Bad Request |
 | DTO | Quando o atributo status não existir | 400 | Bad Request |
 
@@ -84,3 +84,4 @@
 | HTTP Status | Chave | Mensagem | Message (en-US) |
 |---|---|---|---|
 | 404 | REGISTRO_NAO_ENCONTRADO | Nenhum registro encontrado para essa solicitação | No register found for this request |
+| 404 | ORDER_REELBOLSO_NAO_ENCONTRADO | Nenhum registro encontrado para essa solicitação de reembolso | No register found for this request refund|

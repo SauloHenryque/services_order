@@ -10,7 +10,7 @@ import br.com.saulo.order.entidades.OrderEntidade;
 @Repository
 public interface OrderRepositorio extends JpaRepository<OrderEntidade, Long> {
 
-	OrderEntidade findById(long id);
+	OrderEntidade findById(int id);
 
 	@Query(value = "SELECT OS.id from  order_sale OS INNER JOIN order_sale_payment OSP ON OSP.id_order_sale = OS.id where DATEADD(DAY, :dias, OS.data_confirmacao )  >=  CONVERT (date, GETDATE()) AND OS.status = 'CONFIRMADO' AND  OSP.status = 'CONCLUIDO' AND OS.id = :id", nativeQuery = true)
 	Long findByIdAndDias(@Param("id") Long id, @Param("dias") Long dias);

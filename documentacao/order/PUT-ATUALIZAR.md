@@ -47,6 +47,7 @@
 | id | Código identificador do order | order identifier | Long | 1 | 
 | data_confirmacao | Data Confirmação Order | Order Confirmation Date | Date | "2019-03-23" | 
 | status | Status Order | Status Order | String | "CRIADO" |
+| id_store | Código Identificação da Store | store identifier | Long | 1 |
 
 **Código status da resposta HTTP: 200 - Ok**
 
@@ -56,6 +57,7 @@
     "id": 1,
 	"data_confirmacao": "2019-03-23",
     "status": "CRIADO"
+	"id_store": 1
 }
 ```
 

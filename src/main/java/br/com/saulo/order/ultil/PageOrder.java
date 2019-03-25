@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageStore<T>{
+public class PageOrder<T>{
 
      @JsonInclude(Include.ALWAYS)
      public int number;

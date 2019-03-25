@@ -50,7 +50,7 @@ public class GenericConvert {
        return model;
   }
     
-    public static <T, E> PageStore convertModelMapperToPageLoja(Page<T> page, Type typeDestination) {
+    public static <T, E> PageOrder convertModelMapperToPageLoja(Page<T> page, Type typeDestination) {
 
         if (page != null && typeDestination != null) {
 
@@ -63,14 +63,14 @@ public class GenericConvert {
         return null;
    }
     
-    public static PageStore buildPageLoja(Page p) {
+    public static PageOrder buildPageLoja(Page p) {
 
         if (p == null) {
 
              return null;
         } else {
 
-        	 PageStore pageApi = new PageStore();
+        	 PageOrder pageApi = new PageOrder();
              pageApi.setContent(p.getContent());
              pageApi.setHasContent(p.hasContent());
              pageApi.setNumber(p.getNumber());
