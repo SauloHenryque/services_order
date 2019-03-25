@@ -91,6 +91,7 @@
 | --- | --- | :---: | --- |
 | Service | Quando atualiza a order item | 200 | Ok |
 | Service | Quando a order item não existe | 404 | Not Found |
+| Service | Quando a order não existe | 404 | Not Found |
 | DTO | Quando a quantidade de caracteres do atributo descricao for maior que 255 |  400 | Bad Request |
 | DTO | Quando o atributo descricao não existir | 400 | Bad Request |
 | DTO | Quando o atributo cep não existir | 400 | Bad Request |

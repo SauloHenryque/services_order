@@ -86,10 +86,10 @@ public class OrderServico {
 	public OrderEntidade reembolsarOrder(int id) {
 		
 		Long idLong = new Long(id);
-		checkThrow(orderRepositorio.existsById(idLong), REGISTRO_NAO_ENCONTRADO);
+		checkThrow(!orderRepositorio.existsById(idLong), REGISTRO_NAO_ENCONTRADO);
 		OrderEntidade orderEntidade = orderRepositorio.findById(id);
 		
-		Long diasLimiteReembolso  = uteis.recuperarParametroEmissor(orderEntidade.getId_store(), "REEMBOLSODIAS");  
+		Long diasLimiteReembolso  	= uteis.recuperarParametroEmissor(orderEntidade.getId_store(), "REEMBOLSODIAS");  
 		Long idOrder 				= orderRepositorio.findByIdAndDias(idLong, diasLimiteReembolso);
 		checkThrow(Objeto.isBlank(idOrder), ORDER_REEMBOLSO_NAO_ENCONTRADO);
 		

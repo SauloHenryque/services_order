@@ -91,6 +91,7 @@
 | --- | --- | :---: | --- |
 | Service | Quando atualiza a order item | 200 | Ok |
 | Service | Quando a order payment não existe | 404 | Not Found |
+| Service | Quando a order não existe | 404 | Not Found |
 | DTO | Quando a status não está na lista pre definido|  400 | Bad Request |
 | DTO | Quando o atributo status não existir | 400 | Bad Request |
 | DTO | Quando o atributo numero_cartao não existir | 400 | Bad Request |

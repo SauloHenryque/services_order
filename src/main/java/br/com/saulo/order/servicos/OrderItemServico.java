@@ -51,6 +51,7 @@ public class OrderItemServico {
 	public OrderItemEntidade atualizarOrderItem(OrderItemEntidade orderItemEntidade) {
 		
     	checkThrow(!orderItemRepositorio.existsById(orderItemEntidade.getId()), REGISTRO_NAO_ENCONTRADO);
+    	checkThrow(!orderRepositorio.existsById(orderItemEntidade.getId_order_sale()), REGISTRO_NAO_ENCONTRADO);
 		return orderItemRepositorio.save(orderItemEntidade);
 	} 
 	
