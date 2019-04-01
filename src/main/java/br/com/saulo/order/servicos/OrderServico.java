@@ -10,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import com.github.thiagonego.alfred.object.Objeto;
+
 import br.com.saulo.order.entidades.OrderEntidade;
 import br.com.saulo.order.repositorios.OrderRepositorio;
 import br.com.saulo.order.ultil.Utils;
-import br.com.twsoftware.alfred.object.Objeto;
 import lombok.Data;
 
 @Data

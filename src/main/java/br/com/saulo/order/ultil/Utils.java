@@ -3,8 +3,10 @@ package br.com.saulo.order.ultil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.github.thiagonego.alfred.object.Objeto;
+
 import br.com.saulo.order.repositorios.StoreConfigRepositorio;
-import br.com.twsoftware.alfred.object.Objeto;
+
 
 @Component
 public class Utils {
